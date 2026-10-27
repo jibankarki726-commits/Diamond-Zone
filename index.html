@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101a35">
+<title>Diamond Zone — FF Top-up Demo</title>
+<style>
+:root{--bg:#0b1020;--panel:#121c36;--panel2:#182648;--text:#f5f7ff;--muted:#aab7d5;--blue:#58b8ff;--line:#2a3a60}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#1b3260 0,#0b1020 48%);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text);min-height:100vh}
+.wrap{max-width:760px;margin:auto;padding:20px 14px 40px}.top{display:flex;align-items:center;gap:12px;padding:16px 4px 22px}.logo{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#57d7ff,#4265ff);display:grid;place-items:center;font-size:27px;box-shadow:0 8px 28px #2269b866}.brand{font-weight:900;letter-spacing:1.5px;font-size:21px}.sub{font-size:12px;color:var(--muted);letter-spacing:1.8px}.pill{margin-left:auto;border:1px solid #f4c66b;color:#ffdc8a;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:800}
+.hero{padding:24px 20px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(135deg,#1b3563,#131c39 70%);overflow:hidden;position:relative}.eyebrow{color:#78d7ff;font-weight:800;font-size:12px;letter-spacing:2px}.hero h1{font-size:clamp(28px,7vw,43px);line-height:1.08;margin:10px 0}.hero p{color:#c2cee8;line-height:1.55;margin:0;max-width:480px}.crystals{font-size:42px;margin-top:18px;letter-spacing:7px}
+.card{margin-top:16px;padding:20px;border:1px solid var(--line);border-radius:22px;background:#111a31eF;box-shadow:0 14px 36px #0002}.label{display:block;font-size:13px;font-weight:750;margin:0 0 8px}.input{width:100%;padding:14px;border-radius:12px;border:1px solid #34466d;background:#0b1329;color:white;font-size:16px;outline:none}.input:focus{border-color:var(--blue)}.hint{font-size:12px;color:var(--muted);margin-top:7px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.package{background:#111b34;border:1px solid #314368;color:white;padding:15px 10px;border-radius:14px;text-align:center;font-weight:750;cursor:pointer}.package span{display:block;font-size:26px;margin-bottom:6px}.package small{display:block;color:var(--muted);font-weight:500;margin-top:5px}.package.active{border-color:var(--blue);background:#19365a;box-shadow:0 0 0 1px var(--blue) inset}.summary{background:#0a1226;border:1px solid #28385d;border-radius:15px;padding:15px;margin-top:18px}.sumrow{display:flex;justify-content:space-between;gap:12px;padding:8px 0;font-size:14px}.sumrow span:first-child{color:var(--muted)}.notice{font-size:12px;color:#ffdc8a;background:#382d18;border:1px solid #67512a;border-radius:12px;padding:12px;line-height:1.5;margin:15px 0}.btn{width:100%;padding:15px;border:0;border-radius:13px;background:linear-gradient(90deg,#328cff,#5b67ff);color:white;font-weight:850;font-size:16px;cursor:pointer}.btn:active{transform:scale(.99)}.result{display:none;margin-top:15px;padding:15px;border-radius:14px;border:1px solid #3a8e72;background:#102e2a;line-height:1.55;font-size:14px}.result.show{display:block}.footer{text-align:center;color:#8392b4;font-size:11px;line-height:1.6;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo" aria-hidden="true">💎</div>
+    <div><div class="brand">DIAMOND ZONE</div><div class="sub">FREE FIRE TOP-UP</div></div>
+    <div class="pill">DEMO ONLY</div>
+  </header>
+  <section class="hero">
+    <div class="eyebrow">LEVEL UP YOUR GAME</div>
+    <h1>Diamond<br>Top-up</h1>
+    <p>Choose a package and preview your order. This is a personal demo project, not an official Garena website.</p>
+    <div class="crystals" aria-hidden="true">💎 ✦ 💎</div>
+  </section>
+  <main class="card">
+    <label class="label" for="uid">Free Fire Player UID</label>
+    <input class="input" id="uid" inputmode="numeric" maxlength="20" value="13147197419" placeholder="Enter Player UID">
+    <div class="hint">Double-check the UID. This demo does not send anything to a game account.</div>
+    <div style="height:22px"></div>
+    <div class="label">Select Diamond Package</div>
+    <div class="grid" id="packages">
+      <button class="package" data-name="100 Diamonds"><span>💎</span>100 Diamonds<small>Demo package</small></button>
+      <button class="package" data-name="310 Diamonds"><span>💎</span>310 Diamonds<small>Demo package</small></button>
+      <button class="package" data-name="520 Diamonds"><span>💎</span>520 Diamonds<small>Demo package</small></button>
+      <button class="package active" data-name="610 Diamonds"><span>💎</span>610 Diamonds<small>Demo package</small></button>
+    </div>
+    <div class="summary">
+      <div style="font-weight:850;margin-bottom:5px">Order Summary</div>
+      <div class="sumrow"><span>Player UID</span><strong id="sumuid">13147197419</strong></div>
+      <div class="sumrow"><span>Package</span><strong id="sumpkg">610 Diamonds</strong></div>
+      <div class="sumrow"><span>Price</span><strong>Not set</strong></div>
+      <div class="sumrow"><span>Payment</span><strong>Disabled</strong></div>
+    </div>
+    <div class="notice">⚠️ Demo only: no payment is collected and no Diamonds are delivered. Do not enter payment PINs, passwords, or OTPs on a demo page.</div>
+    <button class="btn" id="order">Create Demo Order</button>
+    <div class="result" id="result" role="status" aria-live="polite"></div>
+  </main>
+  <div class="footer">UNOFFICIAL FAN-MADE DEMO • NOT AFFILIATED WITH GARENA<br>Static page only • No real payment • No real Diamond delivery</div>
+</div>
+<script>
+const uid=document.getElementById('uid'), sumuid=document.getElementById('sumuid'), sumpkg=document.getElementById('sumpkg'), result=document.getElementById('result');
+let selected='610 Diamonds';
+document.querySelectorAll('.package').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('.package').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active'); selected=btn.dataset.name; sumpkg.textContent=selected; result.classList.remove('show');
+}));
+uid.addEventListener('input',()=>{sumuid.textContent=uid.value.trim()||'Not entered';result.classList.remove('show')});
+document.getElementById('order').addEventListener('click',()=>{
+  const id=uid.value.trim();
+  if(!/^[0-9]{5,20}$/.test(id)){result.textContent='Please enter a numeric demo UID (5–20 digits).';result.classList.add('show');return;}
+  const ref='DEMO-'+Math.random().toString(36).slice(2,8).toUpperCase();
+  result.innerHTML='<strong>✓ Demo order created</strong><br>Reference: '+ref+'<br>UID: '+id+'<br>Package: '+selected+'<br>Status: Demo only — no payment processed and no Diamonds delivered.';
+  result.classList.add('show');
+});
+</script>
+</body>
+</html>
